@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'kramdown'
 require 'find'
-require 'watchr'
+require 'json'
 
 class MarkdownRenderer
 	def initialize ()
@@ -28,4 +28,10 @@ end
 get '/' do
 	content = MarkdownRenderer.new.get_documents
 	erb :index, :locals => { :content => content }
+end
+
+get '/content.json' do
+	content = MarkdownRenderer.new.get_documents
+	content_type :json
+	content.to_json
 end

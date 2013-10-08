@@ -25,11 +25,12 @@
 						<div class="page-header">
 							<h1>Support Portal</h1>
 							<p>A simple documentation site for application support.</p>
+							<p><%= content.class %></p>
 						</div>
 					</div>
 				</div>
 			    <div class="row">
-				    <div class="span4" ng-controlelr='navigation_controller'>
+				    <div class="span4" ng-controller='support_controller'>
 						<div class="well sidebar-nav">
 						    <ul class="nav nav-list">
 						    	<% sorted_content = content.keys.sort %>
