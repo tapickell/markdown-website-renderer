@@ -36,7 +36,7 @@
 }
 
 .page-header {
-	margin-top: 80px;
+	margin-top: 100px;
 }
 
 .navbar-inverse {
@@ -50,5 +50,10 @@
 }
 
 .chuck_knows {
+	margin-left: 60px;
+}
+
+.approved {
+	margin: 20px;
 	margin-left: 60px;
 }
