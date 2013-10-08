@@ -45,13 +45,10 @@
 			    <div class="span3" ng-controlelr='navigation_controller'>
 					<div class="well sidebar-nav">
 					    <ul class="nav nav-list">
-					        <li ng-class="navClass('about_us')"><a href='about_us'>About Us</a></li>
-					        <li ng-class="navClass('contact_us')"><a href='contact_us'>Contact Us</a></li>
-					        <li ng-class="navClass('feedback')"><a href='feedback'>Feedback</a></li>
-					        <li ng-class="navClass('reservation')"><a href='reservation'>Reservation</a></li>
-					        <li ng-class="navClass('columbia_college')"><a href='columbia_college'>Columbia College</a></li>
-					        <li ng-class="navClass('around_columbia')"><a href='around_columbia'>Around Columbia</a></li>
-					        <li ng-class="navClass('directions')"><a href='directions'>Directions</a></li>
+					    	<% sorted_content = content.keys.sort %>
+							<% 0.upto((content.keys.length) -1) { |i| %>
+								<li><a href="#tabs-<%= i %>"><%= sorted_content[i] %></a></li>
+							<% } %>
 					    </ul>
 					</div>
 				</div>
@@ -62,17 +59,8 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="tabs">
-			<ul>
-			<% sorted_content = content.keys.sort %>
-			<% 0.upto((content.keys.length) -1) { |i| %>
-				<li><a href="#tabs-<%= i %>"><%= sorted_content[i] %></a></li>
-			<% } %>
-			</ul>
 			<% 0.upto((content.keys.length) -1) { |i| %>
 				<div id="tabs-<%= i %>"><%= content[sorted_content[i]] %></div>
 			<% } %>
-		</div>
 	</body>
 </html>
