@@ -1,20 +1,18 @@
 require 'rubygems'
 require 'sinatra'
-require 'redcarpet'
+require 'kramdown'
 require 'find'
 
 class MarkdownRenderer
 	def initialize ()
 		@content = {}
-		renderer = Redcarpet::Render::HTML.new(:no_links => true, :hard_wrap => true)
-		@markdown = Redcarpet::Markdown.new(renderer)
 	end
 
 	def start_search
 		Dir['markdown/**/*.md'].each {|fileName|
 			name = create_tab_name_from(fileName)
 			file = File.open(fileName)
-			@content[name] = @markdown.render(file.read)
+			@content[name] = Kramdown::Document.new(file.read).to_html
 		}
 		@content
 	end
