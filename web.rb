@@ -8,7 +8,7 @@ class MarkdownRenderer
 		@content = {}
 	end
 
-	def start_search
+	def get_documents
 		Dir['markdown/**/*.md'].each {|fileName|
 			name = create_tab_name_from(fileName)
 			file = File.open(fileName)
@@ -25,6 +25,6 @@ class MarkdownRenderer
 end
 
 get '/' do
-	content = MarkdownRenderer.new.start_search
+	content = MarkdownRenderer.new.get_documents
 	erb :index, :locals => { :content => content }
 end
