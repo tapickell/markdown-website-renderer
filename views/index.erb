@@ -5,6 +5,7 @@
 		<title>Markdown</title>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/web.css" rel="stylesheet">
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -26,12 +27,41 @@
 
 			});
 		</script>
-		<style type="text/css">
-			/*demo page css*/
-			body{ font: 62.5% "Trebuchet MS", sans-serif; margin: 20px;}
-		</style>
 	</head>
 	<body>
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<div class="circular"></div>
+				</div>
+				<div class="span9">
+					<div class="page-header">
+						<h1>Support Portal</h2>
+							<p>A simple documentation site for application support.</p>
+					</div>
+				</div>
+			</div>
+		    <div class="row">
+			    <div class="span3" ng-controlelr='navigation_controller'>
+					<div class="well sidebar-nav">
+					    <ul class="nav nav-list">
+					        <li ng-class="navClass('about_us')"><a href='about_us'>About Us</a></li>
+					        <li ng-class="navClass('contact_us')"><a href='contact_us'>Contact Us</a></li>
+					        <li ng-class="navClass('feedback')"><a href='feedback'>Feedback</a></li>
+					        <li ng-class="navClass('reservation')"><a href='reservation'>Reservation</a></li>
+					        <li ng-class="navClass('columbia_college')"><a href='columbia_college'>Columbia College</a></li>
+					        <li ng-class="navClass('around_columbia')"><a href='around_columbia'>Around Columbia</a></li>
+					        <li ng-class="navClass('directions')"><a href='directions'>Directions</a></li>
+					    </ul>
+					</div>
+				</div>
+				<div class="span9">
+					<div class="well well-large">
+						<div ng-view></div>
+					</p>
+				</div>
+			</div>
+		</div>
 
 		<div id="tabs">
 			<ul>

@@ -1,0 +1,26 @@
+.well.sidebar-nav {
+	float: left;
+}
+
+.pic_right {
+	float: right;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.pic_left {
+	float: left;
+	margin-top: 20px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.circular {
+	width: 180px;
+	height: 180px;
+	border-radius: 90px;
+	-webkit-border-radius: 90px;
+	-moz-border-radius: 90px;
+	background: url(images/IT_Crowd.png) no-repeat;
+}
