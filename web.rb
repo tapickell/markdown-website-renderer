@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'kramdown'
 require 'find'
+require 'watchr'
 
 class MarkdownRenderer
 	def initialize ()

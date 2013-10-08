@@ -13,17 +13,23 @@ class MDConverter
     text_file = File.open(filename, 'r')
 
     md_file.puts heading_from_filename(filename)
+    md_file.puts '   '
+    md_file.puts "Date: #{File.mtime(text_file)}"
+    md_file.puts '   '
 
     text_file.each_line do |line|
       md_file.puts processed_line(line)
     end
+
+    md_file.puts '   '
+    md_file.puts '***'
 
     md_file.close
     text_file.close
   end
 
   def heading_from_filename(filename)
-    filename.gsub(/_/, ' ').gsub(/.txt/, '').prepend('#')
+    filename.gsub(/_/, ' ').gsub(/.txt/, '').prepend('###')
   end
 
   def processed_line(line)
@@ -42,8 +48,9 @@ class JTSupportSyntax
 
   def convert(line)
     line = bold_tag_words(line)
-    line = convert_h2(line)
+    line = convert_h4(line)
     line = convert_hr(line)
+    line = convert_dashed_hr(line)
     line = convert_list_items(line)
     line = convert_url(line)
     line = convert_filepath(line)
@@ -59,12 +66,16 @@ class JTSupportSyntax
     line
   end
 
-  def convert_h2(line)
-    /:$/.match(line) ? line.prepend('##') : line
+  def convert_h4(line)
+    /:\s*$/.match(line) ? line.prepend('####'): line
   end
 
   def convert_hr(line)
-    line.gsub(/^[=*]{3,}$/, '---').gsub(/^[-\s]+$/, '---')
+    line.gsub(/^[=*]{3,}$/, '   ')
+  end
+
+  def convert_dashed_hr(line)
+    line.gsub(/[-\s]{4,}/, '  ')
   end
 
   def convert_list_items(line)

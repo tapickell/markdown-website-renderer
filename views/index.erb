@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Support Portal</title>
 
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link href="css/web.css" rel="stylesheet">
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -15,39 +15,50 @@
 
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<div class="span3">
-					<div class="circular"></div>
-				</div>
-				<div class="span9">
-					<div class="page-header">
-						<h1>Support Portal</h2>
-						<p>A simple documentation site for application support.</p>
+		<div id="wrap">
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<div class="circular"></div>
 					</div>
-					<input class='search_box' placeholder='Search...' ng-model='filter_keyword'>
+					<div class="span12">
+						<div class="page-header">
+							<h1>Support Portal</h1>
+							<p>A simple documentation site for application support.</p>
+							<input class='search_box' placeholder='Search...' ng-model='filter_keyword'>
+						</div>
+					</div>
 				</div>
-			</div>
-		    <div class="row">
-			    <div class="span3" ng-controlelr='navigation_controller'>
-					<div class="well sidebar-nav">
-					    <ul class="nav nav-list">
-					    	<% sorted_content = content.keys.sort %>
+			    <div class="row">
+				    <div class="span4" ng-controlelr='navigation_controller'>
+						<div class="well sidebar-nav">
+						    <ul class="nav nav-list">
+						    	<% sorted_content = content.keys.sort %>
+								<% 0.upto((content.keys.length) -1) { |i| %>
+									<li><a href="#tabs-<%= i %>"><%= sorted_content[i] %></a></li>
+								<% } %>
+						    </ul>
+						</div>
+					</div>
+					<div class="span12">
+						<div class="well well-large">
 							<% 0.upto((content.keys.length) -1) { |i| %>
-								<li><a href="#tabs-<%= i %>"><%= sorted_content[i] %></a></li>
+								<div id="tabs-<%= i %>"><%= content[sorted_content[i]] %></div>
 							<% } %>
-					    </ul>
+							<div ng-view></div>
+							</p>
+						</div>
 					</div>
 				</div>
-				<div class="span9">
-					<div class="well well-large">
-						<% 0.upto((content.keys.length) -1) { |i| %>
-							<div id="tabs-<%= i %>"><%= content[sorted_content[i]] %></div>
-						<% } %>
-						<div ng-view></div>
-					</p>
-				</div>
 			</div>
+		</div>
+		<div class="navbar navbar-default navbar-fixed-bottom ">
+			<img class="chuck_norris" src="css/images/chuck_code.jpg" heigth="220" width="290" />
+		</div>
+		<div class="navbar navbar-inverse navbar-fixed-bottom">
+
+					<p class="navbar-text"><input class='search_box' placeholder='Search...' ng-model='filter_keyword'><span class="chuck_knows">Chuck Norris already knows what you are looking for.</span></p>
+
 		</div>
 	</body>
 </html>

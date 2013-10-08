@@ -19,6 +19,8 @@
 .circular {
 	width: 180px;
 	height: 180px;
+	margin: 20px;
+	margin-left: 60px;
 	border-radius: 90px;
 	-webkit-border-radius: 90px;
 	-moz-border-radius: 90px;
@@ -26,4 +28,27 @@
 }
 
 .search_box {
+	margin-left: 320px;
+}
+
+.container {
+	width: 1400px;
+}
+
+.page-header {
+	margin-top: 80px;
+}
+
+.navbar-inverse {
+	background-color: #252525;
+	z-index: 2;
+}
+
+.chuck_norris {
+	z-index: 3;
+	margin-left: 10px;
+}
+
+.chuck_knows {
+	margin-left: 60px;
 }
