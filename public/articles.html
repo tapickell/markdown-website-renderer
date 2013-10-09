@@ -1,0 +1,39 @@
+<div id="wrap">
+	<div class="container">
+		<div class="row">
+			<div class="span4">
+				<img class="approved" src="css/images/chuck_approved.png" heigth="180" width="180" />
+			</div>
+			<div class="span12">
+				<div class="page-header">
+					<h1>Support Portal</h1>
+					<p>A simple documentation site for application support.</p>
+				</div>
+			</div>
+		</div>
+	    <div class="row">
+		    <div class="span4">
+				<div class="well sidebar-nav">
+				    <ul class="nav nav-list">
+				    	<h1>NavSideBar</h1>
+				    	<img src='css/images/chuck_code.jpg' heigth="180" width="180" />
+				    </ul>
+				</div>
+			</div>
+			<div class="span12">
+				<div class="well well-large">
+					<div ng-repeat="article in articles | filter:filter_keyword">
+						<p ng-bind-html-unsafe='article'></p>
+					</div>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="navbar navbar-default navbar-fixed-bottom ">
+	<img class="chuck_norris" src="css/images/chuck_code.jpg" heigth="220" width="290" />
+</div> -->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+	<p class="navbar-text"><input class='search_box' placeholder='Search...' ng-model='filter_keyword'><span class="chuck_knows">Chuck Norris already knows what you are looking for.</span></p>
+</div>

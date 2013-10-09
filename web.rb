@@ -26,12 +26,10 @@ class MarkdownRenderer
 end
 
 get '/' do
-	content = MarkdownRenderer.new.get_documents
-	erb :index, :locals => { :content => content }
+	erb :index
 end
 
 get '/content.json' do
-	content = MarkdownRenderer.new.get_documents
 	content_type :json
-	content.to_json
+	MarkdownRenderer.new.get_documents.to_json
 end

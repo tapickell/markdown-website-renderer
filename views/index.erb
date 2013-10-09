@@ -1,62 +1,21 @@
 <!DOCTYPE html>
-<html>
-	<head ng-app='portal'>
+<html ng-app="portal">
+	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Support Portal</title>
 
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link href="css/web.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/web.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.4/angular-strap.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/web.js"></script>
 
 	</head>
 	<body>
-		<div id="wrap">
-			<div class="container">
-				<div class="row">
-					<div class="span4">
-						<img class="approved" src="css/images/chuck_approved.png" heigth="180" width="180" />
-					</div>
-					<div class="span12">
-						<div class="page-header">
-							<h1>Support Portal</h1>
-							<p>A simple documentation site for application support.</p>
-							<p><%= content.class %></p>
-						</div>
-					</div>
-				</div>
-			    <div class="row">
-				    <div class="span4" ng-controller='support_controller'>
-						<div class="well sidebar-nav">
-						    <ul class="nav nav-list">
-						    	<% sorted_content = content.keys.sort %>
-								<% 0.upto((content.keys.length) -1) { |i| %>
-									<li><a href="#tabs-<%= i %>"><%= sorted_content[i] %></a></li>
-								<% } %>
-						    </ul>
-						</div>
-					</div>
-					<div class="span12">
-						<div class="well well-large">
-							<% 0.upto((content.keys.length) -1) { |i| %>
-								<div id="tabs-<%= i %>"><%= content[sorted_content[i]] %></div>
-							<% } %>
-							<div ng-view></div>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="navbar navbar-default navbar-fixed-bottom ">
-			<img class="chuck_norris" src="css/images/chuck_code.jpg" heigth="220" width="290" />
-		</div>
-		<div class="navbar navbar-inverse navbar-fixed-bottom">
-			<p class="navbar-text"><input class='search_box' placeholder='Search...' ng-model='filter_keyword'><span class="chuck_knows">Chuck Norris already knows what you are looking for.</span></p>
-		</div>
+		<div ng-view></div>
 	</body>
 </html>

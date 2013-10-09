@@ -53,6 +53,7 @@ class JTSupportSyntax
     line = convert_dashed_hr(line)
     line = convert_list_items(line)
     line = convert_url(line)
+    line = convert_email(line)
     line = convert_filepath(line)
     line = convert_ipaddress(line)
     line
@@ -84,6 +85,10 @@ class JTSupportSyntax
 
   def convert_url(line)
     line.gsub(/(http[s]?:\/\/[\S]+)/, '[\1](\1)')
+  end
+
+  def convert_email(line)
+    line.gsub(/(\w+@\w+\.\w{3})/, '[\1](mailto:\1)')
   end
 
   def convert_filepath(line)
