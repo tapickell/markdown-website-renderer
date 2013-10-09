@@ -45,8 +45,7 @@
 }
 
 .chuck_norris {
-	z-index: 3;
-	margin-left: 10px;
+	margin-left: 60px;
 }
 
 .chuck_knows {
@@ -56,4 +55,9 @@
 .approved {
 	margin: 20px;
 	margin-left: 60px;
+}
+
+.sticky {
+	position: fixed;
+	top: 220px;
 }

@@ -8,7 +8,7 @@ var support_app = angular.module('portal', ['$strap.directives']).
 		$locationProvider.html5Mode(true);
 	}]);
 
-function SupportController($scope) {
+function SupportController($scope, $location, $anchorScroll) {
 	$scope.get_articles = function() {
 		$.ajax({
 			dataType: 'json',
@@ -17,12 +17,23 @@ function SupportController($scope) {
 			success: function(reply) {
 				$scope.$apply(function() {
 					var values = [];
+					var keys = [];
 					for (var key in reply) {
+						keys.push(key)
 						values.push(reply[key]);
 					};
+					$scope.headings = keys;
 					$scope.articles = values;
 				});
 			}
+		});
+	};
+
+	$scope.go_to_id = function(div_id) {
+		$scope.$apply(function() {
+			$scope.hash = div_id;
+			$location.hash(div_id);
+			$anchorScroll();
 		});
 	};
 

@@ -4,26 +4,29 @@
 			<div class="span4">
 				<img class="approved" src="css/images/chuck_approved.png" heigth="180" width="180" />
 			</div>
-			<div class="span12">
+			<div class="span10">
 				<div class="page-header">
 					<h1>Support Portal</h1>
 					<p>A simple documentation site for application support.</p>
+					{{hash}}
 				</div>
 			</div>
 		</div>
 	    <div class="row">
-		    <div class="span4">
-				<div class="well sidebar-nav">
-				    <ul class="nav nav-list">
-				    	<h1>NavSideBar</h1>
-				    	<img src='css/images/chuck_code.jpg' heigth="180" width="180" />
-				    </ul>
-				</div>
-			</div>
-			<div class="span12">
+	    	<div class="span4">
+	    		<div class="well">
+	    			<ul>
+			    		<div ng-repeat="heading in headings">
+			    			<li><a href="" ng-click='go_to_id("mark{{$index}}")'>{{heading}}</a></li>
+			    		</div>
+			    	</ul>
+		    	</div>
+	    		<!-- <img class="chuck_norris sticky" src="css/images/chuck_code.jpg" heigth="180" width="180" /> -->
+	    	</div>
+			<div class="span10">
 				<div class="well well-large">
 					<div ng-repeat="article in articles | filter:filter_keyword">
-						<p ng-bind-html-unsafe='article'></p>
+						<div id="mark{{$index}}" ng-bind-html-unsafe='article'></div>
 					</div>
 					</p>
 				</div>
