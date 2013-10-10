@@ -8,6 +8,22 @@ var support_app = angular.module('portal', ['$strap.directives']).
 		$locationProvider.html5Mode(true);
 	}]);
 
+support_app.filter('fuzzy_search', function() {
+	return function(data_set, scope) {
+		var keyword = scope.filter_keyword;
+		if (!keyword || keyword == '') {
+			return data_set;
+		}
+		var fuse = new Fuse(data_set);
+		var indexes = fuse.search(keyword);
+		var filtered_dataset = [];
+		for (var index in indexes) {
+			filtered_dataset.push(data_set[index]);
+		}
+		return filtered_dataset;
+	};
+});
+
 function SupportController($scope, $location, $anchorScroll) {
 	$scope.get_articles = function() {
 		$.ajax({

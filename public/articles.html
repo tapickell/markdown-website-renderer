@@ -8,7 +8,6 @@
 				<div class="page-header">
 					<h1>Support Portal</h1>
 					<p>A simple documentation site for application support.</p>
-					{{hash}}
 				</div>
 			</div>
 		</div>
@@ -25,7 +24,7 @@
 	    	</div>
 			<div class="span10">
 				<div class="well well-large">
-					<div ng-repeat="article in articles | filter:filter_keyword">
+					<div ng-repeat="article in articles | fuzzy_search:this">
 						<div id="mark{{$index}}" ng-bind-html-unsafe='article'></div>
 					</div>
 					</p>
